@@ -1,8 +1,9 @@
 import React from "react";
+import SearchLayoutComponent from "./components/SearchLayoutComponent/SearchLayoutComponent";
 
-const App = () => ( 
+const App = () => (
     <div>
-        <h1>Hello React</h1>
+        <SearchLayoutComponent />
     </div>
 );
 
