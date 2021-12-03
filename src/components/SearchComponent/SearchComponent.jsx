@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ListComponent from "../ListComponent/ListComponent";
+import "./style.css";
 
 const SearchComponent = ({ episodes }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,16 +18,19 @@ const SearchComponent = ({ episodes }) => {
       }, [searchTerm, episodes]);
 
     return (
-      <div className="searchForm">
-        <input
-          type="text"
-          placeholder="Введите название эпизода"
-          value={searchTerm}
-          onChange={handleChange}
-        />
-        <p>Список эпизодов:</p>
+      <div className="searchContainer">
+        <form className="searchForm">
+          <input
+            className="searchInput"
+            type="text"
+            placeholder="Введите поисковый запрос"
+            value={searchTerm}
+            onChange={handleChange}
+          />
+        </form>
+        <p className="paragraph">Список серий:</p>
         {searchResults.length !== 0 ? (
-          <ul className="episodes">
+          <ul className="episodesView">
             {searchResults.map((episodesItem) => (
               <li key={episodesItem.id}>
                     <ListComponent {...episodesItem} />
@@ -34,7 +38,7 @@ const SearchComponent = ({ episodes }) => {
             ))}
           </ul>
         ) : (
-          <p>Список пуст</p>
+          <p className="parEmptySearch">Ничего не найдено</p>
         )}
       </div>
     )
