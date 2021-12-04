@@ -11,7 +11,7 @@ const SearchComponent = ({ episodes }) => {
     }
 
     useEffect(() => {
-        const searchEpisodes = episodes.filter((episodesItem) =>
+        const searchEpisodes = episodes.rows.filter((episodesItem) =>
           episodesItem.name.toLowerCase().includes(searchTerm.toLowerCase())
         );    
         setSearchResults(searchEpisodes);
@@ -23,22 +23,36 @@ const SearchComponent = ({ episodes }) => {
           <input
             className="searchInput"
             type="text"
-            placeholder="Введите поисковый запрос"
+            placeholder="Введите название серии"
             value={searchTerm}
             onChange={handleChange}
           />
         </form>
         <p className="paragraph">Список серий:</p>
         {searchResults.length !== 0 ? (
-          <ul className="episodesView">
+          <table className="episodesTable">
+            <tr className="episodesHeader">
+              <td className="episodesCell">
+                Сезон
+              </td>
+              <td  className="episodesCell">
+                Серия
+              </td>
+              <td  className="episodesCell2">
+                Название серии
+              </td>
+              <td  className="episodesCell2">
+                Дата выхода
+              </td>
+            </tr>
             {searchResults.map((episodesItem) => (
-              <li key={episodesItem.id}>
+              <tr key={episodesItem.id} className="episodesRow">
                     <ListComponent {...episodesItem} />
-              </li>
+              </tr>
             ))}
-          </ul>
+          </table>
         ) : (
-          <p className="parEmptySearch">Ничего не найдено</p>
+            <p className="parEmptySearch">Ничего не найдено</p>
         )}
       </div>
     )

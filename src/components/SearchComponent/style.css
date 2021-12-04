@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 1600px;
 }
 
 .searchForm {
@@ -35,10 +36,41 @@
   background-color: #444444;
 }
 
-.episodesView {
-    margin: 0;
-    padding: 0 20px;
-    list-style: none;
+.episodesTable {
+  border-collapse: collapse;
+  width: 800px;
+  cursor: pointer;
+}
+
+.episodesHeader {
+  font-weight: 700;
+}
+
+.episodesRow:hover {
+  background: #999;
+}
+
+.episodesRow:active {
+  background: coral;
+}
+
+.episodesCell {
+  margin: 0;
+  padding-right: 10px;
+  font-size: 18px;
+  line-height: 18px;
+  vertical-align: middle;
+  text-align: center;
+  width: 80px;
+}
+
+.episodesCell2 {
+  margin: 0;
+  padding: 5px;
+  font-size: 18px;
+  line-height: 18px;
+  vertical-align: middle;
+  text-align: left;
 }
 
 .paragraph {
