@@ -47,7 +47,7 @@ const SearchComponent = ({ episodes }) => {
             </tr>
             {searchResults.map((episodesItem) => (
               <tr key={episodesItem.id} className="episodesRow">
-                    <ListComponent {...episodesItem} />
+                <ListComponent {...episodesItem} />
               </tr>
             ))}
           </table>
